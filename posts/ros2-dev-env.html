@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Musings and Rants | A ROS2 Odyssey Part 1</title>
+  <meta name="description" content="Setting up a build environment part 1, or VM shenanigans">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="A ROS2 Odyssey Part 1">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lumion.github.io//posts/ros2-dev-env">
+  <meta property="og:description" content="Setting up a build environment part 1, or VM shenanigans">
+  <meta property="og:site_name" content="Musings and Rants">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="https://lumion.github.io//posts/ros2-dev-env">
+  <meta name="twitter:title" content="A ROS2 Odyssey Part 1">
+  <meta name="twitter:description" content="Setting up a build environment part 1, or VM shenanigans">
+
+  
+    <meta property="og:image" content="https://lumion.github.io//assets/og-image-3bdb6286cb15f6a0b6bbd226a1743f4d39240fe66a102344605fe1314099d13a9bff1f0248699daab1a752c368352ddead268039dce4ea64e2cf64bcba20c591.jpg">
+    <meta name="twitter:image" content="https://lumion.github.io//assets/og-image-3bdb6286cb15f6a0b6bbd226a1743f4d39240fe66a102344605fe1314099d13a9bff1f0248699daab1a752c368352ddead268039dce4ea64e2cf64bcba20c591.jpg">
+  
+
+  <link href="https://lumion.github.io//feed.xml" type="application/rss+xml" rel="alternate" title="Musings and Rants Last 10 blog posts" />
+
+  
+
+  
+
+    
+      <link rel="icon" type="image/x-icon" href="/assets/favicon-dark-97d21a254911e4e73ad4593d572def87ea7641ef5edc4ed9f3f873177d921d92e69573927609e502c84e942508a1507af8ad96fb41eb010957a3a69ef836bd64.ico">
+      <link rel="apple-touch-icon" href="/assets/apple-touch-icon-dark-6264f566102ec83cc279f60912c3a44f044d15322104014a0a458baf5c4ea8cf9f96801819cc9eae9bee5d05fc7c056b69f642a4ea2ab6fcbcc959027cc3b135.png">
+      <link rel="stylesheet" type="text/css" href="/assets/dark-c1d5d9239f7e8c3fe43b061dcf2e250114bc80fb759e7fdb495e02f7d8f4d8e1e23feba7161e043fbef458d7caaac7e30b46c5550a1a65128db3e486202e71a6.css">
+    
+
+  
+  <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/dreampulse/computer-modern-web-font/master/fonts.css">
+
+</head>
+
+<body>
+  <main>
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav scrollappear">
+  <a href="/" class="header-logo" title="Musings and Rants">Musings and Rants</a>
+  <ul class="header-links">
+    
+    
+    
+    
+    
+      <li>
+        <a href="https://github.com/lumion" rel="noreferrer noopener" target="_blank" title="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-github">
+  <use href="/assets/github-10edb77a3518b05780064bb523537819f64b80e4b2d2d439b7a6b0a733d3cac46cedd9e596e135df1e1186dcf7a99274c63e920c3dc3380fa10b7580da376499.svg#icon-github" xlink:href="/assets/github-10edb77a3518b05780064bb523537819f64b80e4b2d2d439b7a6b0a733d3cac46cedd9e596e135df1e1186dcf7a99274c63e920c3dc3380fa10b7580da376499.svg#icon-github"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <li>
+        <a href="/feed.xml" rel="noreferrer noopener" target="_blank" title="RSS">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-rss">
+  <use href="/assets/rss-7680a593d1ccadf39f830f35967f738fee90be473d64dcd7b549ad0619beb0a76e74e5c7ff32736ed3960b378ddc9cb4ade80d70161011e768ac539eb5199831.svg#icon-rss" xlink:href="/assets/rss-7680a593d1ccadf39f830f35967f738fee90be473d64dcd7b549ad0619beb0a76e74e5c7ff32736ed3960b378ddc9cb4ade80d70161011e768ac539eb5199831.svg#icon-rss"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+  </ul>
+</nav>
+
+
+
+        <article class="article scrollappear">
+          <header class="article-header">
+            <h1>A ROS2 Odyssey Part 1</h1>
+            <p>Setting up a build environment part 1, or VM shenanigans</p>
+            <div class="article-list-footer">
+  <span class="article-list-date">
+    September 24, 2022
+  </span>
+  <span class="article-list-divider">-</span>
+  <span class="article-list-minutes">
+    
+    
+      3 minute read
+    
+  </span>
+  <span class="article-list-divider">-</span>
+  <div class="article-list-tags">
+    
+      
+      <a href="/tag/ros2" title="See all posts with tag 'ROS2'">ROS2</a>
+    
+      
+      <a href="/tag/pain" title="See all posts with tag 'Pain'">Pain</a>
+    
+      
+      <a href="/tag/vm" title="See all posts with tag 'Virtual Machines'">Virtual Machines</a>
+    
+  </div>
+</div>
+          </header>
+
+          <div class="article-content">
+            <h2 id="background">Background</h2>
+
+<p>Fairly recently I was confronted with the need to set up a development environment for <a href="https://www.ros.org">ROS2</a> and it was a pain.</p>
+
+<p>Now, for what it’s worth, I’m a person who mostly works under Windows, and so I thought I’d give trying to set it up under Windows a shot.</p>
+
+<h3 id="attempt-1-using-mingw">Attempt 1. Using MinGW</h3>
+
+<p>No dice, it gets pretty far into the build process, but at some point some of the dependencies will complain about you trying to build them under Windows, namely <code class="language-plaintext highlighter-rouge">iceoryx</code> if my memory serves me correctly.</p>
+
+<p>Maybe you can get it to work, but at that point I’d already invested several hours and was frankly sick of it.</p>
+
+<h3 id="attempt-2-building-under-wsl2">Attempt 2. Building under WSL2</h3>
+
+<p>This one I had to give up on for similar reasons as attempt number one, with the additional inconvenience of being unable to set up some sort of GUI.</p>
+
+<h3 id="attempt-3-setting-up-a-linux-vm">Attempt 3. Setting up a Linux VM</h3>
+
+<p>In retrospect, I should’ve done this from the start.</p>
+
+<p>However, due to me installing WSL2 I was compelled to use Hyper-V to run the VM, and that is a pain in its own right.</p>
+
+<p>I did not feel like running Ubuntu for various reasons, so I went ahead and set up a VM with the most recent stable version of Debian.</p>
+
+<p>And that immediately bit me in the ass for a few other reasons…</p>
+
+<h4 id="linux-vms-in-hyper-v">Linux VMs in Hyper-V</h4>
+
+<p>So… it turns out that Hyper-V ships this “driver” called <code class="language-plaintext highlighter-rouge">hyperv_fb</code> which is supposed to help improve graphics performance of Linux VMs running in Hyper-V, which it doesn’t if the VM has a Linux Kernel which hasn’t received this <a href="https://lists.ubuntu.com/archives/kernel-team/2021-January/116548.html">patch</a> yet.</p>
+
+<p>I don’t recall the exact kernel version number, but the point is, the kernel version shipped with Debian 11.5.0 hadn’t received the patch yet, making the Hyper-V console experience basically unbearable.</p>
+
+<p>As a result, I first attempted to resolve the issue by using the VESA video driver, which does indeed perform better, but is stuck at an unbearably low resolution.</p>
+
+<p>I said screw it and then proceeded to switch to the <code class="language-plaintext highlighter-rouge">testing</code> distribution.</p>
+
+<p>This fixed the poor graphics performance while using Hyper-V console, but a few other things were still lacking, such as the ability to copy-paste from the host to the guest, which I then found out requires something called “Enhanced Session” mode, which basically boils down to the VM requiring an RDP server, which also needs to be configured correctly.</p>
+
+<p>For you lucky readers headed down the same path, there’s an <a href="https://raw.githubusercontent.com/Hinara/linux-vm-tools/ubuntu20-04/ubuntu/20.04/install.sh">install script</a> though as it is meant for Ubuntu, I did not dare use it directly myself. Still, you can basically follow the instructions there step for step and get it working.</p>
+
+<p>You will also want to look into <code class="language-plaintext highlighter-rouge">hvsock</code> from what I recall.</p>
+
+<p>At this point I also want to stress that you must not use the dynamic memory option for the VM, it will not work, and instead cause Debian to run out of memory.</p>
+
+<h2 id="thoughts">Thoughts</h2>
+
+<p>I’ll leave the actual issues with building ROS2 for another post, this was already quite a lot to write for now.</p>
+
+<p>Needless to say, setting up a VM for it is only the first hurdle.</p>
+
+<p>Stay tuned for next time when I will cover.. <em>shudders</em>.. <code class="language-plaintext highlighter-rouge">colcon</code> and other fun things.</p>
+
+<h2 id="tldr">TLDR</h2>
+
+<ol>
+  <li>Don’t bother trying to get ROS2 to work on a Windows machine</li>
+  <li>When you use a Hyper-V VM, remember the following
+    <ol>
+      <li>If the guest kernel is too old, <code class="language-plaintext highlighter-rouge">hyperv_fb</code> is broken</li>
+      <li>Dynamic memory in Hyper-V breaks Linux</li>
+      <li>To get a usable experience, you will have to set up xrdp</li>
+    </ol>
+  </li>
+</ol>
+
+          </div>
+          <div class="article-share">
+            
+            
+            <a href="https://twitter.com/home?status=A+ROS2+Odyssey+Part+1%20-%20https://lumion.github.io//posts/ros2-dev-env" title="Share on Twitter" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M492 109.5c-17.4 7.7-36 12.9-55.6 15.3 20-12 35.4-31 42.6-53.6 -18.7 11.1-39.4 19.2-61.5 23.5C399.8 75.8 374.6 64 346.8 64c-53.5 0-96.8 43.4-96.8 96.9 0 7.6 0.8 15 2.5 22.1 -80.5-4-151.9-42.6-199.6-101.3 -8.3 14.3-13.1 31-13.1 48.7 0 33.6 17.2 63.3 43.2 80.7C67 210.7 52 206.3 39 199c0 0.4 0 0.8 0 1.2 0 47 33.4 86.1 77.7 95 -8.1 2.2-16.7 3.4-25.5 3.4 -6.2 0-12.3-0.6-18.2-1.8 12.3 38.5 48.1 66.5 90.5 67.3 -33.1 26-74.9 41.5-120.3 41.5 -7.8 0-15.5-0.5-23.1-1.4C62.8 432 113.7 448 168.3 448 346.6 448 444 300.3 444 172.2c0-4.2-0.1-8.4-0.3-12.5C462.6 146 479 129 492 109.5z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://lumion.github.io//posts/ros2-dev-env" title="Share on Facebook" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M288 192v-38.1c0-17.2 3.8-25.9 30.5-25.9H352V64h-55.9c-68.5 0-91.1 31.4-91.1 85.3V192h-45v64h45v192h83V256h56.4l7.6-64H288z"/></svg>
+            </a>
+          </div>
+
+          
+        </article>
+        <footer class="footer scrollappear">
+  <p>
+    Layout based on the Chalk theme for Jekyll
+  </p>
+</footer>
+
+      </div>
+    </div>
+  </main>
+  
+
+<script type="text/javascript" src="/assets/vendor-a59435abb4d54ac12de591f0ae30b4c6c806cc0fa3e5d09008e77efa8e7ab90fa8e55991354a7ab8002625a0dbb28ce468c6e57150da1e783c311e8c81db0962.js"></script>
+
+
+  <script type="text/javascript" src="/assets/webfonts-6d8ec88e13d5b033ba92ed681db4d785ef30f3081eb70f63ff121f180e31226d64509fa25d70cfd99a83c2df125b86514c4cc34a342df71ec502c590817235ec.js"></script>
+
+
+
+  <script type="text/javascript" src="/assets/scrollappear-2798e5ed44916d5bae6797e9c239d8c13cf43c3f2df330e480c22b54d822fada88b37513fab98f8f9b82ccd975b564e8cbdbbcfdf9851b7e189d92a05f5fedf4.js"></script>
+
+
+<script type="text/javascript" src="/assets/application-b925dc95fa5cd171073f7b7109ce92ef571037175c0e5a5cbfc234550dcca260edafc35fc2b48fd16abe8e079d35b9bf31e8076da41b5c87d1c4611377b95b3b.js"></script>
+
+
+</body>
+</html>

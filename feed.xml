@@ -7,6 +7,14 @@
     <atom:link href="https://lumion.github.io//feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>A ROS2 Odyssey Part 1</title>
+        <description>Setting up a build environment part 1, or VM shenanigans</description>
+        <pubDate>Sat, 24 Sep 2022 00:00:00 +0200</pubDate>
+        <link>https://lumion.github.io//posts/ros2-dev-env</link>
+        <guid isPermaLink="true">https://lumion.github.io//posts/ros2-dev-env</guid>
+      </item>
+    
+      <item>
         <title>I made a blog</title>
         <description>I made a blog, and it was a bit of a pain</description>
         <pubDate>Sat, 24 Sep 2022 00:00:00 +0200</pubDate>
