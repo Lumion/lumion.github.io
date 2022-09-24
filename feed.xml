@@ -3,15 +3,15 @@
   <channel>
     <title>Musings and Rants</title>
     <description></description>
-    <link>http://localhost:4000</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    <link>https://lumion.github.io/</link>
+    <atom:link href="https://lumion.github.io//feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
         <title>I made a blog</title>
         <description>I made a blog, and it was a bit of a pain</description>
         <pubDate>Sat, 24 Sep 2022 00:00:00 +0200</pubDate>
-        <link>http://localhost:4000/posts/i-made-a-blog</link>
-        <guid isPermaLink="true">http://localhost:4000/posts/i-made-a-blog</guid>
+        <link>https://lumion.github.io//posts/i-made-a-blog</link>
+        <guid isPermaLink="true">https://lumion.github.io//posts/i-made-a-blog</guid>
       </item>
     
   </channel>
