@@ -7,6 +7,14 @@
     <atom:link href="https://lumion.github.io//feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>A ROS2 Odyssey Part 2</title>
+        <description>Setting up a build environment part 2, or colcon</description>
+        <pubDate>Sun, 25 Sep 2022 00:00:00 +0200</pubDate>
+        <link>https://lumion.github.io//posts/ros2-dev-env2</link>
+        <guid isPermaLink="true">https://lumion.github.io//posts/ros2-dev-env2</guid>
+      </item>
+    
+      <item>
         <title>A ROS2 Odyssey Part 1</title>
         <description>Setting up a build environment part 1, or VM shenanigans</description>
         <pubDate>Sat, 24 Sep 2022 00:00:00 +0200</pubDate>
